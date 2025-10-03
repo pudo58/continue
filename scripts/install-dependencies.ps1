@@ -1,4 +1,4 @@
-# This is used in a task in .vscode/tasks.json when on windows
+﻿# This is used in a task in .vscode/tasks.json when on windows
 # Start developing with:
 # - Run Task -> Install Dependencies
 # - Debug -> Extension
@@ -35,7 +35,7 @@ if (Test-Path ".nvmrc") {
     $currentVersion = $currentNodeVersion.TrimStart('v')
 
     if ($requiredVersion -ne $currentVersion) {
-        Write-Host "`n⚠️  Warning: Your Node.js version ($currentNodeVersion) does not match the required version ($requiredNodeVersion)" -ForegroundColor Yellow
+        Write-Host "`nâš ï¸  Warning: Your Node.js version ($currentNodeVersion) does not match the required version ($requiredNodeVersion)" -ForegroundColor Yellow
         Write-Host "Please consider switching to the correct version using: nvm use" -ForegroundColor Yellow
         
         # Check if running in interactive mode
@@ -119,3 +119,7 @@ Push-Location docs
 npm install
 
 Pop-Location
+
+# ví dụ binary xuất ra ở .\binary\out\win32-x64\continue-binary.exe
+New-Item -ItemType Directory -Force .\extensions\intellij\src\main\resources\core\win32-x64 | Out-Null
+Copy-Item .\binary\bin\win32-x64\continue-binary.exe .\extensions\intellij\src\main\resources\core\win32-x64\
